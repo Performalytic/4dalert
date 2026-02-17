@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>4DAlert AI-Powered Data Management Platform</title>
     <meta name="description" content="Automate reconciliation, data quality, observability, and schema CI/CD with 4DAlerts AI-driven platform for reliable enterprise.">
-    <link rel="icon" href="https://4dalert.com/wp-content/uploads/2024/12/fav-150x150-1.png">
+    <link rel="icon" href="assets/images/logos/fav-150x150-1.png">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -13,7 +13,7 @@
         :root { --primary: #0098cc; --secondary: #016fc0; --dark: #0a1e3c; --text: #4b5873; --light: #f8f9fa; --white: #fff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; color: var(--dark); }
+        h1, h2, h3, h4, h5, h6 { font-family: 'DM Sans', sans-serif; font-weight: 700; color: var(--dark); }
         a { text-decoration: none; color: inherit; transition: all 0.3s; }
         ul { list-style: none; padding: 0; margin: 0; }
         img { max-width: 100%; }
@@ -21,10 +21,12 @@
         
         /* Header */
         .header-top { background: var(--dark); padding: 8px 0; color: var(--white); font-size: 14px; }
-        .header-bottom { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+        .header-bottom { background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 9999; }
+        .header-bottom.stricky { position: fixed; top: 0; left: 0; right: 0; animation: slideDown 0.3s; }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
         .header-wrap { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; }
         .logo img { max-width: 180px; }
-        .main-menu ul { display: flex; gap: 30px; }
+        .main-menu ul { display: flex; gap: 30px; align-items: center; }
         .main-menu a { font-weight: 500; font-size: 15px; color: var(--dark); padding: 10px 0; display: block; position: relative; }
         .main-menu a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
         .main-menu a:hover::after { width: 100%; }
@@ -33,7 +35,7 @@
         .megamenu:hover .submenu { display: block; }
         .mega-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 48px; }
         .mega-cat { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 22px; }
-        .sol-item { display: flex; gap: 14px; padding: 12px 8px; border-radius: 10px; transition: 0.25s; margin-bottom: 22px; }
+        .sol-item { display: flex; gap: 14px; padding: 12px 8px; border-radius: 10px; transition: 0.25s; margin-bottom: 22px; text-decoration: none; color: inherit; }
         .sol-item:hover { background: #f2f7ff; transform: translateX(4px); }
         .sol-icon { width: 40px; height: 40px; min-width: 40px; background: #e8f1ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #004aad; }
         .sol-head { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
@@ -49,14 +51,21 @@
         .mob-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
         
         /* Hero */
-        .hero { background: linear-gradient(135deg, #0a1e3c 0%, #1a3a5c 50%, #0a1e3c 100%); padding: 180px 0 100px; position: relative; }
+        .hero { background: linear-gradient(135deg, #0a1e3c 0%, #1a3a5c 50%, #0a1e3c 100%); padding: 180px 0 100px; position: relative; overflow: hidden; }
+        .hero .shape_image { position: absolute; pointer-events: none; }
+        .hero .shape_image_1 { bottom: 0; left: 0; width: 100%; }
+        .hero .shape_image_2 { bottom: 0; right: 0; }
+        .hero .shape_image_3 { top: 20%; left: 10%; }
+        .hero .shape_image_4 { top: 30%; right: 5%; }
         .hero h1 { font-size: 56px; color: var(--white); line-height: 1.2; margin-bottom: 24px; }
         .hero h1 span { color: #00ffff; }
         .hero p { font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 35px; max-width: 600px; }
         .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .hero-img { border-radius: 16px; overflow: hidden; }
         
         /* Clients */
-        .clients { background: #0a1e3c; padding: 40px 0; }
+        .clients { background: var(--dark); padding: 40px 0; }
+        .clients h2 { color: var(--white); text-align: center; margin-bottom: 30px; font-size: 24px; }
         .client-item { display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0.7; }
         .client-item:hover { opacity: 1; }
         .client-item img { max-height: 60px; filter: grayscale(100%); }
@@ -71,7 +80,8 @@
         .sec-title p { font-size: 18px; max-width: 700px; margin: 0 auto; }
         
         /* Solutions */
-        .solutions { background: var(--light); }
+        .solutions { background: var(--light); position: relative; }
+        .solutions .shape { position: absolute; pointer-events: none; }
         .sol-card { background: var(--white); border-radius: 16px; padding: 35px; text-align: center; transition: all 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.05); height: 100%; }
         .sol-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .sol-card-icon { width: 80px; height: 80px; margin: 0 auto 25px; background: linear-gradient(135deg, #e8f1ff, #d4e8ff); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: var(--primary); }
@@ -87,6 +97,9 @@
         .feature-content .sec-title h2 { font-size: 36px; }
         .feature-content .sec-title p { text-align: left; margin: 0; }
         .feature-img { position: relative; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .feature-img img { width: 100%; display: block; }
+        .zoom-btn { position: absolute; top: 14px; right: 14px; width: 50px; height: 50px; border-radius: 50%; background: #ffffff; color: var(--primary); font-size: 22px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(0,0,0,0.15); cursor: pointer; z-index: 10; }
+        .zoom-btn:hover { transform: scale(1.05); }
         
         /* Tech */
         .techs { background: linear-gradient(180deg, #0a1e3c, #1a3a5c); padding: 80px 0; }
@@ -98,13 +111,13 @@
         .tech-item:hover img { opacity: 1; }
         
         /* Contact */
-        .contact { background: var(--light); padding: 100px 0; }
+        .contact { background: var(--light); padding: 100px 0; position: relative; }
         .contact-box { background: var(--white); border-radius: 20px; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
         .contact-box .sec-title { text-align: left; }
         .contact-list li { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; }
         .contact-list .icon { width: 50px; height: 50px; background: var(--primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 18px; flex-shrink: 0; }
         .contact-list a { color: var(--primary); font-weight: 600; }
-        .form-group { margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; position: relative; }
         .form-control { width: 100%; padding: 15px 20px; border: 2px solid #e8ecf0; border-radius: 10px; font-size: 15px; font-family: 'DM Sans', sans-serif; }
         .form-control:focus { outline: none; border-color: var(--primary); }
         .form-control::placeholder { color: #8a95a5; }
@@ -130,7 +143,7 @@
         /* Carousel */
         .carousel { max-width: 1600px; margin: 0 auto; position: relative; }
         .carousel-view { overflow: hidden; border-radius: 16px; }
-        .carousel-track { display: flex; transition: transform 0.45s; }
+        .carousel-track { display: flex; transition: transform 0.45s cubic-bezier(0.22, 0.9, 0.28, 1); }
         .carousel-slide { flex: 0 0 100%; }
         .carousel-slide img { width: 100%; display: block; border-radius: 12px; }
         .carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 22px; color: var(--primary); border: none; }
@@ -144,8 +157,11 @@
         /* Modal */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 99999; align-items: center; justify-content: center; padding: 40px; }
         .modal.show { display: flex; }
-        .modal img { max-width: 95%; max-height: 90vh; border-radius: 12px; }
+        .modal img { max-width: 95%; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
         .modal-close { position: absolute; top: 24px; right: 28px; font-size: 40px; color: #fff; cursor: pointer; background: none; border: none; }
+        .modal-nav { position: absolute; top: 50%; transform: translateY(-50%); color: var(--primary); font-size: 50px; cursor: pointer; padding: 20px; }
+        .modal-prev { left: 20px; }
+        .modal-next { right: 20px; }
         
         /* Utils */
         .back-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; z-index: 9999; border: none; }
@@ -166,10 +182,10 @@
 
     <header>
         <div class="header-top text-center"><div class="container"><span><i class="fas fa-envelope"></i> support@4dalert.com</span><span class="ms-4"><i class="fas fa-map-marker-alt"></i> 111 W. Jackson Blvd, Suite 1700 Chicago, IL 60604</span></div></div>
-        <div class="header-bottom">
+        <div class="header-bottom" id="header">
             <div class="container">
                 <div class="header-wrap">
-                    <div class="logo"><a href="index.html"><img src="https://4dalert.com/wp-content/uploads/2024/05/4D-ALERT-LOGO-1-1.png" alt="4DAlert"></a></div>
+                    <div class="logo"><a href="index.html"><img src="assets/images/logos/4D-ALERT-LOGO-1-1.png" alt="4DAlert"></a></div>
                     <nav class="main-menu d-none d-lg-block">
                         <ul>
                             <li><a href="index.html">Home</a></li>
@@ -178,16 +194,16 @@
                                 <ul class="submenu">
                                     <li>
                                         <div class="mega-grid">
-                                            <div><div class="mega-cat">Master Data Management</div><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-brain"></i></div><div><div class="sol-head">AI Powered MDM & Entity Resolution</div><div class="sol-sub">Create a unified single source of truth with intelligent entity resolution.</div></div></a></div>
-                                            <div><div class="mega-cat">Data Quality</div><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-sync-alt"></i></div><div><div class="sol-head">Automated Data Reconciliation</div><div class="sol-sub">Ensure consistency between source systems and analytics databases.</div></div></a><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-chart-line"></i></div><div><div class="sol-head">Data Quality & Observability</div><div class="sol-sub">Gain full visibility to monitor data quality across pipelines.</div></div></a></div>
-                                            <div><div class="mega-cat">DataOps</div><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-rocket"></i></div><div><div class="sol-head">CI/CD Pipeline Automation</div><div class="sol-sub">Streamline incremental database object changes.</div></div></a><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-code-branch"></i></div><div><div class="sol-head">Schema Compare & Version Control</div><div class="sol-sub">Compare and version-control database objects.</div></div></a><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-project-diagram"></i></div><div><div class="sol-head">Entity Relationship Modeling</div><div class="sol-sub">Maintain relationships between entities.</div></div></a></div>
-                                            <div><div class="mega-cat">AI</div><a href="#" class="sol-item"><div class="sol-icon"><i class="fas fa-robot"></i></div><div><div class="sol-head">Ask4D GenAI Assistant</div><div class="sol-sub">Explore your data by asking Natural language questions.</div></div></a></div>
+                                            <div><div class="mega-cat">Master Data Management</div><a href="https://4dalert.com/service/ai-powered-master-data-management/" class="sol-item"><div class="sol-icon"><i class="fas fa-brain"></i></div><div><div class="sol-head">AI Powered MDM & Entity Resolution</div><div class="sol-sub">Create a unified single source of truth with intelligent entity resolution.</div></div></a></div>
+                                            <div><div class="mega-cat">Data Quality</div><a href="https://4dalert.com/service/automated-data-reconciliation/" class="sol-item"><div class="sol-icon"><i class="fas fa-sync-alt"></i></div><div><div class="sol-head">Automated Data Reconciliation</div><div class="sol-sub">Ensure consistency between source systems and analytics databases.</div></div></a><a href="https://4dalert.com/service/data-quality-management/" class="sol-item"><div class="sol-icon"><i class="fas fa-chart-line"></i></div><div><div class="sol-head">Data Quality & Observability</div><div class="sol-sub">Gain full visibility to monitor data quality across pipelines.</div></div></a></div>
+                                            <div><div class="mega-cat">DataOps</div><a href="https://4dalert.com/service/database-ci-cd-pipeline-automation/" class="sol-item"><div class="sol-icon"><i class="fas fa-rocket"></i></div><div><div class="sol-head">CI/CD Pipeline Automation</div><div class="sol-sub">Streamline incremental database object changes.</div></div></a><a href="https://4dalert.com/service/schema-comparison-automatic-change-deployment/" class="sol-item"><div class="sol-icon"><i class="fas fa-code-branch"></i></div><div><div class="sol-head">Schema Compare & Version Control</div><div class="sol-sub">Compare and version-control database objects.</div></div></a><a href="https://4dalert.com/service/entity-relationship-modeling/" class="sol-item"><div class="sol-icon"><i class="fas fa-project-diagram"></i></div><div><div class="sol-head">Entity Relationship Modeling</div><div class="sol-sub">Maintain relationships between entities.</div></div></a></div>
+                                            <div><div class="mega-cat">AI</div><a href="https://4dalert.com/service/ask4d-genai-assistant/" class="sol-item"><div class="sol-icon"><i class="fas fa-robot"></i></div><div><div class="sol-head">Ask4D GenAI Assistant</div><div class="sol-sub">Explore your data by asking Natural language questions.</div></div></a></div>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="has-sub"><a href="#">Resources</a><ul class="sub"><li><a href="#">Blog</a></li><li><a href="#">Strategy Playbook</a></li><li><a href="#">Case Study</a></li><li><a href="#">White Paper</a></li></ul></li>
-                            <li class="has-sub"><a href="#">Company</a><ul class="sub"><li><a href="#">About us</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></li>
+                            <li class="has-sub"><a href="#">Resources</a><ul class="sub"><li><a href="https://4dalert.com/blog/">Blog</a></li><li><a href="https://4dalert.com/strategy-playbook/">Strategy Playbook</a></li><li><a href="https://4dalert.com/case-studies/">Case Study</a></li><li><a href="https://4dalert.com/white-paper/">White Paper</a></li></ul></li>
+                            <li class="has-sub"><a href="#">Company</a><ul class="sub"><li><a href="https://4dalert.com/about/">About us</a></li><li><a href="https://4dalert.com/careers/">Careers</a></li><li><a href="https://4dalert.com/contact/">Contact</a></li></ul></li>
                             <li><a href="http://4dalertsupport.com/login">Customer Login</a></li>
                         </ul>
                     </nav>
@@ -204,40 +220,64 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1>Transform Your Data Landscape with <span>4DAlert's</span> Unified Solution</h1>
-                    <p>Transform your data with 4DAlert's AI-Powered MDM platform. Automating Data Reconciliation and validating millions of entries daily, we ensure top Data quality and real-time Observability with AI/ML. With integrated CI/CD schema comparison, Automatic Change Management, and ER Diagram generation, 4DAlert makes enterprise data management seamless and scalable.</p>
-                    <div class="hero-btns"><a href="https://4dalert.com/sign-up/" class="btn btn-primary"><span>Start Your Free Trial</span><i class="fas fa-arrow-up-right"></i></a></div>
+                    <div class="content_wrap">
+                        <h1>Transform Your Data Landscape with <span>4DAlert's</span> Unified Solution</h1>
+                        <p>Transform your data with 4DAlert's AI-Powered MDM platform. Automating Data Reconciliation and validating millions of entries daily, we ensure top Data quality and real-time Observability with AI/ML. With integrated CI/CD schema comparison, Automatic Change Management, and ER Diagram generation, 4DAlert makes enterprise data management seamless and scalable.</p>
+                        <div class="hero-btns"><a href="https://4dalert.com/sign-up/" class="btn btn-primary"><span>Start Your Free Trial</span><i class="fas fa-arrow-up-right"></i></a></div>
+                    </div>
                 </div>
-                <div class="col-lg-6 hero-img"><img src="https://4dalert.com/wp-content/uploads/2025/05/4dalert-gen-ai-mdm-dataops-data-reconciliation-datahouse.gif" alt="4DAlert Platform"></div>
+<div class="col-lg-6 hero-img"><img src="assets/images/shapes/4dalert-gen-ai-mdm-dataops-data-reconciliation-datahouse.gif" alt="4DAlert Platform"></div>
             </div>
         </div>
+<img src="assets/images/shapes/shape_image_1-scaled-1.webp" alt="" class="shape_image shape_image_1">
     </section>
 
     <section class="clients">
         <div class="container">
-            <div class="sec-title"><span class="focus">Our Global Clients</span></div>
+            <h2>Our Global Clients</h2>
             <div class="row g-4">
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/partnerre-logo.png" alt="PartnerRe"></div></div>
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2025/07/ecolab-logo-1-1.png" alt="Ecolab"></div></div>
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/pfizer-logo.png" alt="Pfizer"></div></div>
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Championx-logo.png" alt="Championx"></div></div>
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/SGSCO-logo.png" alt="SGSCO"></div></div>
-                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="https://4dalert.com/wp-content/uploads/2024/12/Aic-logo.png" alt="AIC"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/partnerre-logo.png" alt="PartnerRe"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/ecolab-logo-1-1.png" alt="Ecolab"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/pfizer-logo.png" alt="Pfizer"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/Championx-logo.png" alt="Championx"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/SGSCO-logo.png" alt="SGSCO"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/Universal-Woods-logo.png" alt="Universal Woods"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/Aic-logo.png" alt="AIC"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/w-logo.png" alt="w-logo"></div></div>
+                <div class="col-6 col-md-4 col-lg-2"><div class="client-item"><img src="assets/images/clients/gsk-logo.jpeg" alt="GSK"></div></div>
             </div>
         </div>
     </section>
 
-    <section class="solutions sec-pad">
+    <section class="solutions sec-pad" id="solution">
         <div class="container">
             <div class="sec-title"><span class="focus">Our Solutions</span><h2>How We Can <mark>Help</mark> You</h2></div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-brain"></i></div><h3>AI Powered MDM & Entity Resolution</h3><p>Record Matching, Survivorship Logic, Prebuilt Connectors, Golden Records</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-sync-alt"></i></div><h3>Automated Data Reconciliation</h3><p>Source Alignment, Mismatch Resolution, Validation Cycles, Pipeline Integration</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-chart-line"></i></div><h3>Data Quality & Observability</h3><p>ETL Validation, Accuracy Metrics, Quality Workflows, Trust Scoring</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-rocket"></i></div><h3>CI/CD Pipeline Automation</h3><p>Automated Deployments, DevOps Integration, Failure Mitigation, Version Synchronization</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-code-branch"></i></div><h3>Schema Compare & Version Control</h3><p>Schema Diff, Drift Detection, Change Orchestration, Multi-Source Support</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-project-diagram"></i></div><h3>Entity Relationship Modeling</h3><p>Model Visualization, Relationship Mapping, Rule Enforcement, Referential Integrity</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
-                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-robot"></i></div><h3>Ask4D GenAI Assistant</h3><p>Natural Queries, Context Memory, Clarifying Questions, Seamless Interaction</p><a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-brain"></i></div><h3>AI Powered MDM & Entity Resolution</h3><p>Record Matching, Survivorship Logic, Prebuilt Connectors, Golden Records</p><a href="https://4dalert.com/service/ai-powered-master-data-management/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-sync-alt"></i></div><h3>Automated Data Reconciliation</h3><p>Source Alignment, Mismatch Resolution, Validation Cycles, Pipeline Integration</p><a href="https://4dalert.com/service/automated-data-reconciliation/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-chart-line"></i></div><h3>Data Quality & Observability</h3><p>ETL Validation, Accuracy Metrics, Quality Workflows, Trust Scoring</p><a href="https://4dalert.com/service/data-quality-management/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-rocket"></i></div><h3>CI/CD Pipeline Automation</h3><p>Automated Deployments, DevOps Integration, Failure Mitigation, Version Synchronization</p><a href="https://4dalert.com/service/database-ci-cd-pipeline-automation/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-code-branch"></i></div><h3>Schema Compare & Version Control</h3><p>Schema Diff, Drift Detection, Change Orchestration, Multi-Source Support</p><a href="https://4dalert.com/service/schema-comparison-automatic-change-deployment/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+<p>Model Visualization, Relationship Mapping, Rule Enforcement, Referential Integrity</p><a href="https://4dalert.com/service/entity-relationship-modeling/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+                <div class="col-md-6 col-lg-4"><div class="sol-card"><div class="sol-card-icon"><i class="fas fa-robot"></i></div><h3>Ask4D GenAI Assistant</h3><p>Natural Queries, Context Memory, Clarifying Questions, Seamless Interaction</p><a href="https://4dalert.com/service/ask4d-genai-assistant/" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec-pad">
+        <div class="container">
+            <div class="carousel">
+                <div class="carousel-view">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide"><img src="assets/images/features/MDM-ER-1.png" alt="MDM"></div>
+                        <div class="carousel-slide"><img src="assets/images/features/MDM-ER-2.png" alt="MDM"></div>
+                        <div class="carousel-slide"><img src="assets/images/features/MDM-ER-3.png" alt="MDM"></div>
+                        <div class="carousel-slide"><img src="assets/images/features/MDM-ER-4-2.png" alt="MDM"></div>
+                    </div>
+                </div>
+                <button class="carousel-nav prev" onclick="moveSlide(-1)">&#8249;</button>
+                <button class="carousel-nav next" onclick="moveSlide(1)">&#8250;</button>
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </div>
     </section>
@@ -245,10 +285,10 @@
     <section class="feature">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6"><div class="carousel"><div class="carousel-view"><div class="carousel-track" id="carouselTrack"><div class="carousel-slide"><img src="https://4dalert.com/wp-content/uploads/2025/12/MDM-ER-1.png" alt="MDM"></div><div class="carousel-slide"><img src="https://4dalert.com/wp-content/uploads/2025/12/MDM-ER-2.png" alt="MDM"></div><div class="carousel-slide"><img src="https://4dalert.com/wp-content/uploads/2025/12/MDM-ER-3.png" alt="MDM"></div></div></div><button class="carousel-nav prev" onclick="moveSlide(-1)">&#8249;</button><button class="carousel-nav next" onclick="moveSlide(1)">&#8250;</button></div><div class="carousel-dots" id="carouselDots"></div></div></div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/MDM-ER-1.png" alt="MDM"></div></div>
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>AI Powered MDM & Entity Resolution</h2><p>4DAlert enhances MDM with Match & Merge to connect multi-domain records, eliminate duplicates, and ensure accuracy. Its Survivorship logic prioritizes the most reliable source for master records. Pre-built Content for SAP & Salesforce ensures seamless integration across key platforms. AI-Powered MDM enables smarter, automated data management, improving data quality over time.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>AI Powered MDM & Entity Resolution</h2><p>4DAlert enhances MDM with Match & Merge to connect multi-domain records, eliminate duplicates, and ensure accuracy.</p></div>
+                    <a href="https://4dalert.com/service/gen-ai-based-master-data-management-mdm/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
             </div>
         </div>
@@ -258,10 +298,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>Automated Data Reconciliation</h2><p>4DAlert automates the reconciliation of data between your analytics platform and source systems after every data load. By using AI/ML-powered algorithms, it ensures data accuracy and detects discrepancies before they impact decision-making. This proactive approach allows you to identify and resolve data issues early, preventing problems from reaching your users.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>Automated Data Reconciliation</h2><p>4DAlert automates the reconciliation of data between your analytics platform and source systems.</p></div>
+                    <a href="https://4dalert.com/service/automated-data-reconciliation/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2026/01/Data-Reconciliation.png" alt="Data Reconciliation"></div></div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/Data-Reconciliation.png" alt="Data Reconciliation"></div></div>
             </div>
         </div>
     </section>
@@ -269,10 +309,10 @@
     <section class="feature">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2025/12/Data-Quality.png" alt="Data Quality"></div></div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/Data-Quality.png" alt="Data Quality"></div></div>
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>Data Quality & Observability</h2><p>With 4DAlert's data observability module, you can continuously monitor the health of your data across all Platforms. Using machine learning, it automatically detects anomalies, generates adaptive rules, and identifies the root causes of issues. This helps you prevent data quality problems before they arise, ensuring reliable, actionable data for your teams.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>Data Quality & Observability</h2><p>With 4DAlert's data observability module, you can continuously monitor the health of your data.</p></div>
+                    <a href="https://4dalert.com/service/proactive-data-quality-management/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
             </div>
         </div>
@@ -282,10 +322,10 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>CI/CD Pipeline Automation</h2><p>4DAlert automates CI/CD pipelines, Schema comparison, and Change deployment to maintain consistent, compliant, and error-free data environments. It seamlessly synchronizes database schemas, minimizing deployment errors and accelerating rollouts. With built-in compliance checks and version control, 4DAlert ensures regulatory adherence while maintaining a complete history of schema changes.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>CI/CD Pipeline Automation</h2><p>4DAlert automates CI/CD pipelines, Schema comparison, and Change deployment.</p></div>
+                    <a href="https://4dalert.com/service/ci-cd-pipeline-automation/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2025/12/CICD-Pipeline-Automation.png" alt="CI/CD"></div></div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/CICD-Pipeline-Automation.png" alt="CI/CD"></div></div>
             </div>
         </div>
     </section>
@@ -293,19 +333,11 @@
     <section class="feature">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2025/12/Schema-Compare.png" alt="Schema"></div></div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/Schema-Compare.png" alt="Schema"></div></div>
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>Schema Compare & Version Control</h2><p>4DAlert's Schema Compare & Version Control ensures consistency across all database environments by detecting differences between objects—tables, views, functions, procedures, and indexes—and synchronizing them accurately. It streamlines deployments with automated change scripts, reduces manual errors, and maintains a clear history of schema updates.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>Schema Compare & Version Control</h2><p>4DAlert's Schema Compare & Version Control ensures consistency across all database environments.</p></div>
+                    <a href="https://4dalert.com/service/schema-comparison-automatic-change-deployment/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain databases that are consistent, accurate, and optimized.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
-                </div>
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2025/12/ER-Modeling-2.png" alt="ER Modeling"></div></div>
             </div>
         </div>
     </section>
@@ -313,10 +345,22 @@ Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain dat
     <section class="feature">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6"><div class="feature-img"><img src="https://4dalert.com/wp-content/uploads/2025/12/Ask4D.png" alt="Ask4D"></div></div>
                 <div class="col-lg-6 feature-content">
-                    <div class="sec-title"><h2>Ask4D GenAI Assistant</h2><p>Ask4D is a GenAI LLM powered AI Assistant to get insights and explanations about your data and metadata through simple, natural language conversations. No technical expertise required.</p></div>
-                    <a href="#" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                    <div class="sec-title"><h2>Entity Relationship Modeling</h2><p>Entity-Relationship (ER) Diagrams are essential tools in database design.</p></div>
+                    <a href="https://4dalert.com/service/entity-relationship-modeling/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
+                </div>
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/ER-Modeling-2.png" alt="ER Modeling"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><div class="feature-img"><img src="assets/images/features/Ask4D.png" alt="Ask4D"></div></div>
+                <div class="col-lg-6 feature-content">
+                    <div class="sec-title"><h2>Ask4D GenAI Assistant</h2><p>Ask4D is a GenAI LLM powered AI Assistant to get insights about your data.</p></div>
+                    <a href="https://4dalert.com/service/genai-co-pilot-assistance/" class="btn btn-primary">Explore Features <i class="fas fa-arrow-up-right"></i></a>
                 </div>
             </div>
         </div>
@@ -324,16 +368,18 @@ Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain dat
 
     <section class="techs">
         <div class="container">
-            <div class="sec-title"><span class="focus">Our Technologies</span><h2>Connect and Unify your <mark>Metadata</mark> effortlessly with pre-built connectors.</h2></div>
+            <div class="sec-title"><span class="focus">Our Technologies</span><h2>Connect and Unify your <mark>Metadata</mark> effortlessly.</h2></div>
             <div class="row g-4">
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Microsoft-Fabric-logo.jpg" alt="Microsoft Fabric"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Airflow-logo.jpg" alt="Airflow"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/BigQuery-logo.jpg" alt="BigQuery"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Oracle-logo.jpg" alt="Oracle"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Looker-logo.jpg" alt="Looker"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/PostgresSQL-logo.jpg" alt="PostgreSQL"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/databricks-logo.jpg" alt="Databricks"></div></div>
-                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="https://4dalert.com/wp-content/uploads/2025/05/Vertica-logo.jpg" alt="Vertica"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/Microsoft-Fabric-logo.jpg" alt="Microsoft Fabric"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/Airflow-logo.jpg" alt="Airflow"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/BigQuery-logo.jpg" alt="BigQuery"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/Oracle-logo.jpg" alt="Oracle"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/Looker-logo.jpg" alt="Looker"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/PostgresSQL-logo.jpg" alt="PostgreSQL"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/databricks-logo.jpg" alt="Databricks"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/Vertica-logo.jpg" alt="Vertica"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/gitlab-logo.png" alt="GitLab"></div></div>
+                <div class="col-6 col-md-4 col-lg-3"><div class="tech-item"><img src="assets/images/tech/mode-logo.png" alt="Mode"></div></div>
             </div>
         </div>
     </section>
@@ -352,8 +398,8 @@ Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain dat
                 </div>
                 <div class="col-lg-7">
                     <div class="contact-box">
-                        <div class="small_title"><i class="fas fa-envelope-open-text"></i> Let's Connect!</div>
-                        <h3 class="form_title">Send us a message, and we'll promptly discuss your project with you.</h3>
+                        <h3 style="margin-bottom:20px"><i class="fas fa-envelope-open-text"></i> Let's Connect!</h3>
+                        <p style="margin-bottom:30px">Send us a message, and we'll promptly discuss your project with you.</p>
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6"><div class="form-group"><input type="text" class="form-control" placeholder="Your Name"></div></div>
@@ -381,44 +427,34 @@ Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain dat
                 <div class="service-pill"><i class="fas fa-check"></i> Database CI/CD Pipeline Automation</div>
             </div>
             <div class="row g-5 footer-top">
+                <div class="col-lg-3"><h4>4DAlert</h4><p>AI-Powered Data Management Platform.</p></div>
                 <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h4>4DAlert</h4>
-                        <p>AI-Powered Data Management Platform for enterprise data reconciliation, quality, observability, and schema CI/CD.</p>
-                    </div>
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="https://4dalert.com/service/genai-based-master-data-management-mdm/">AI Powered MDM</a></li>
+                        <li><a href="https://4dalert.com/service/automated-data-reconciliation/">Data Reconciliation</a></li>
+                        <li><a href="https://4dalert.com/service/proactive-data-quality-management/">Data Quality</a></li>
+                        <li><a href="https://4dalert.com/service/ci-cd-pipeline-automation/">CI/CD Automation</a></li>
+                        <li><a href="https://4dalert.com/service/schema-comparison-automatic-change-deployment/">Schema Compare</a></li>
+                        <li><a href="https://4dalert.com/service/entity-relationship-modeling/">ER Modeling</a></li>
+                        <li><a href="https://4dalert.com/service/genai-assistant/">Ask4D</a></li>
+                    </ul>
                 </div>
                 <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h4>Solutions</h4>
-                        <ul>
-                            <li><a href="#">AI Powered MDM & Entity Resolution</a></li>
-                            <li><a href="#">Automated Data Reconciliation</a></li>
-                            <li><a href="#">Data Quality & Observability</a></li>
-                            <li><a href="#">CI/CD Pipeline Automation</a></li>
-                            <li><a href="#">Schema Compare & Version Control</a></li>
-                            <li><a href="#">Ask4D GenAI Assistant</a></li>
-                        </ul>
-                    </div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="https://4dalert.com/about/">About Us</a></li>
+                        <li><a href="https://4dalert.com/careers/">Careers</a></li>
+                        <li><a href="https://4dalert.com/contact/">Contact Us</a></li>
+                    </ul>
                 </div>
                 <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="footer-widget">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><a href="#">Our Solutions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#solution">Our Solutions</a></li>
+                        <li><a href="https://4dalert.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="https://4dalert.com/terms-and-conditions/">Terms of Use</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -432,91 +468,23 @@ Entity Relationship Modeling with 4DAlert, ensuring that businesses maintain dat
         </div>
     </footer>
 
-    <div class="modal" id="imageModal">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-        <img id="modalImg" src="" alt="Fullscreen">
-    </div>
-
     <script>
-        // Preloader
         window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('preloader').classList.add('hide');
-            }, 1000);
+            setTimeout(function() { document.getElementById('preloader').classList.add('hide'); }, 1000);
         });
-
-        // Back to Top
-        document.getElementById('backTop').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Carousel
+        document.getElementById('backTop').addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
         let currentSlide = 0;
-        const track = document.getElementById('carouselTrack');
-        const slides = track.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-        
         function updateCarousel() {
-            track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-            updateDots();
+            const track = document.getElementById('carouselTrack');
+            if(track) track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
         }
-        
-        function moveSlide(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            updateCarousel();
+        function moveSlide(d) {
+            const track = document.getElementById('carouselTrack');
+            if(track) { const slides = track.querySelectorAll('.carousel-slide'); currentSlide = (currentSlide + d + slides.length) % slides.length; updateCarousel(); }
         }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateCarousel();
-        }
-        
-        // Create dots
-        const dotsContainer = document.getElementById('carouselDots');
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-            dot.onclick = () => goToSlide(i);
-            dotsContainer.appendChild(dot);
-        }
-        
-        function updateDots() {
-            const dots = dotsContainer.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-        
-        // Auto-advance carousel
-        setInterval(() => moveSlide(1), 4000);
-
-        // Modal functionality for feature images
-        document.querySelectorAll('.feature-img img').forEach(img => {
-            img.style.cursor = 'pointer';
-            img.addEventListener('click', function() {
-                document.getElementById('modalImg').src = this.src;
-                document.getElementById('imageModal').classList.add('show');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-        
-        function closeModal() {
-            document.getElementById('imageModal').classList.remove('show');
-            document.body.style.overflow = '';
-        }
-        
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header-bottom');
-            if (window.scrollY > 100) {
-                header.classList.add('stricky');
-            } else {
-                header.classList.remove('stricky');
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('carouselTrack');
+            if(track) { const slides = track.querySelectorAll('.carousel-slide'); const dots = document.getElementById('carouselDots'); for(let i=0;i<slides.length;i++){ let dot=document.createElement('button'); dot.className='carousel-dot'+(i===0?' active':''); dot.onclick=()=>{currentSlide=i;updateCarousel();}; dots.appendChild(dot); } setInterval(()=>moveSlide(1),4000); }
         });
     </script>
 </body>
